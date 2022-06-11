@@ -1,0 +1,58 @@
+#include <iostream>
+
+using namespace std;
+
+class swapc
+{
+     private:int temp,a,b;
+     
+     public:int swapf(int ,int );
+            int swapf(int *,int *);
+};
+int swapc::swapf(int a,int b)
+{   
+    cout<<"call by value";
+    temp=a;
+    a=b;
+    b=temp;
+    cout<<"values after swaping"<<a<<"\t"<<b<<"\n";
+    return(a,b);
+}
+int swapc::swapf(int *a,int *b)
+{
+    cout<<"call by reference";
+    temp=*a;
+    *a=*b;
+    *b=temp;
+    cout<<"values after swaping"<<*a<<"\t"<<*b<<"\n";
+    return(*a,*b);
+}
+int main()
+{
+int a,b,ch,temp;
+swapc s;
+menu:
+cout<<"\n1.call by value\n2.call by reference\n3.exit";
+cin>>ch;
+switch(ch)
+{
+    case 1:
+    cout<<"enter the numbers to be swaped";
+    cin>>a>>b;
+    cout<<s.swapf(a,b);
+    goto menu;
+    break;
+    
+    case 2:
+    cout<<"enter the numbers to be swaped";
+    cin>>a>>b;
+    cout<<s.swapf(&a,&b);
+    goto menu;
+    break;
+    
+    case 3:
+    exit;
+    
+}
+return 0;
+}
